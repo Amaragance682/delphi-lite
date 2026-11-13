@@ -1,6 +1,6 @@
 """Package the hand-in as one zip (run from anywhere): python scripts/make_handin.py [out.zip]
 
-Included: code, README, report, slides, demo notebook, results, the logs of every run, the final model
+Included: code, README, report, demo notebook, results, the logs of every run, the final model
 and the checkpoints of its two extra seeds. Excluded: MovieLens files (data/, not redistributable), the
 upstream Delphi clone (external/), checkpoints of runs that are not the final model (rebuild them with
 scripts/run_experiments.sh) and the per-case top-100 arrays (rebuilt by scripts/final_evaluation.sh).
@@ -12,7 +12,7 @@ import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FILES = ["README.md", "THIRD_PARTY_NOTICES.md", "requirements.txt", ".gitignore", "models/delphi_final.pt"]
-FOLDERS = ["configs", "moviedelphi", "scripts", "tests", "notebooks", "report", "slides", "results"]
+FOLDERS = ["configs", "moviedelphi", "scripts", "tests", "notebooks", "report", "results"]
 RUN_FILES = ["config.json", "log.csv", "summary.json"]
 SEED_CHECKPOINTS = {"m5_long_s2", "m5_long_s3"}  # seed 1 is models/delphi_final.pt
 

@@ -8,8 +8,6 @@ histories, and ask one focused question:
 > their **next active day**, and does their own history help beyond knowing what is popular then?
 
 * Report: [`report/report.pdf`](report/report.pdf) (two pages, references on page three)
-* Slides: [`slides/delphi_lite.pptx`](slides/delphi_lite.pptx) (PDF copy alongside); timed speaker notes in
-  [`slides/speaker_notes.md`](slides/speaker_notes.md)
 * Live demo: [`notebooks/demo.ipynb`](notebooks/demo.ipynb); an executed copy is in `notebooks/demo.html` (backup)
 
 <!-- RESULTS -->
@@ -60,13 +58,13 @@ Figures: `results/figures/`; every table: `results/tables/`; the report explains
 | `moviedelphi/analysis.py` | error analysis by bucket and by how popular the target movies are |
 | `moviedelphi/causal_check.py` | leakage check for the user split: no method may suggest a film that no training user had rated by the prediction day |
 | `moviedelphi/efficiency.py` | parameters, training time, CPU and GPU inference cost |
-| `moviedelphi/figures.py`, `report_numbers.py`, `path_table.py`, `readme_results.py` | every figure, every number in the report and slides, and the results section above, generated from the logged results |
+| `moviedelphi/figures.py`, `report_numbers.py`, `path_table.py`, `readme_results.py` | every figure, every number in the report, and the results section above, generated from the logged results |
 | `moviedelphi/demo.py` | the history explorer behind the demo notebook |
 | `tests/test_pipeline.py` | 16 checks: leakage, tie handling, batching, metrics, baselines, popularity offset, causal candidates |
 | `configs/base.json` | hyper-parameters of M1; other runs override single values (see `scripts/run_experiments.sh`) |
 | `runs/<name>/` | one folder per training run: `config.json`, `log.csv` (validation curve), `summary.json`, `ckpt.pt` |
 | `models/delphi_final.pt` | the final model (`runs/m5_long/ckpt.pt`), used for the test results and the demo |
-| `results/tables/`, `results/figures/` | every table and figure in the report and slides; `results/per_case/` has per-user results |
+| `results/tables/`, `results/figures/` | every table and figure in the report; `results/per_case/` has per-user results |
 | `scripts/` | data download, all training runs, the final evaluation, the demo-notebook builder, `make_handin.py` (the zip) |
 
 ## Setup
@@ -108,9 +106,7 @@ bash scripts/final_evaluation.sh         # validation table, then the test set o
 * Every run is logged in `runs/<name>/`: `log.csv` has the validation curve, `summary.json` the best
   checkpoint (chosen on validation recall@20).
 * `final_evaluation.sh` is the only script that reads test users.
-* The tables, figures and report numbers are regenerated from these files. Then build the report with
-  `tectonic -X compile report/report.tex` (or upload `report/` and `results/figures/` to Overleaf) and the
-  slides with `npm install pptxgenjs && node slides/build_slides.js` (run from the repository root).
+* The tables, figures and report numbers are regenerated from these files.
 * One logging detail: runs started before the fix in `train.py` computed the logged validation *loss* on one
   batch of 64 windows instead of 20 batches. Checkpoints were always chosen on validation recall@20, so
   no result depends on it.
