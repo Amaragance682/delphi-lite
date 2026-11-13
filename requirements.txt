@@ -1,0 +1,9 @@
+# Tested with Python 3.11.16, torch 2.11.0+cu128, numpy 2.4.6, pandas 3.0.6, pyarrow 26.0.0,
+# matplotlib 3.11.2, jupyterlab 4.6.3 (RTX 5080 Laptop GPU; every step also runs on CPU, slower).
+# For a CUDA build of torch follow https://pytorch.org/get-started/locally/
+torch>=2.3
+numpy>=1.26
+pandas>=2.2
+pyarrow>=14
+matplotlib>=3.8
+jupyterlab>=4

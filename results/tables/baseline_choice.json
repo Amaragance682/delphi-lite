@@ -1,0 +1,6 @@
+{
+  "event_set": "all",
+  "window": 30,
+  "method": "RECENT-POP[all,W=30]",
+  "val_recall@20": 0.1430741195214069
+}

@@ -1,0 +1,9 @@
+# MovieLens files may not be redistributed: download them with scripts/download_data.sh
+data/
+# upstream Delphi clone, only used as a reference
+external/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+runs/*.out
+.env

@@ -1,0 +1,2 @@
+model,params,checkpoint_mb,train_minutes,train_iters,cpu_threads,cases,cpu_latency_ms_median,cpu_throughput_cases_per_s,cuda_latency_ms_median,cuda_throughput_cases_per_s
+DELPHI,2084224,7.962258338928223,28.96649645169576,30000,24,1514,3.444175001277472,309.7266401036174,0.7125969987100689,7230.049506982799
